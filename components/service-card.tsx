@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Service } from "@/lib/data/services";
 
 export function ServiceCard({ service }: { service: Service }) {
@@ -12,9 +13,12 @@ export function ServiceCard({ service }: { service: Service }) {
       <p className="flex-grow text-[13px] leading-relaxed text-muted">
         {service.description}
       </p>
-      <a href="#" className={`font-mono text-xs uppercase tracking-wide ${linkColor} hover:underline`}>
+      <Link
+        href={`/${service.vertical}/${service.slug}`}
+        className={`font-mono text-xs uppercase tracking-wide ${linkColor} hover:underline`}
+      >
         Learn more →
-      </a>
+      </Link>
     </div>
   );
 }

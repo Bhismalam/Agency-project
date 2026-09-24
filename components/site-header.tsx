@@ -61,7 +61,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button href="/contact" variant="solid">
-            Book a Call
+            Contact Us
           </Button>
         </div>
 
@@ -112,7 +112,7 @@ export function SiteHeader() {
           ))}
           <div className="px-2 pt-2">
             <Button href="/contact" variant="solid" className="w-full">
-              Book a Call
+              Contact Us
             </Button>
           </div>
         </nav>

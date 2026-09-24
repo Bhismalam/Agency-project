@@ -38,7 +38,7 @@ export function SiteFooter() {
               <span className="text-sm text-muted">[email@domain.com]</span>
               <span className="text-sm text-muted">[Instagram / LinkedIn]</span>
               <Link href="/contact" className="font-mono text-xs uppercase tracking-wide text-ink hover:underline">
-                Book a Call →
+                Contact Us →
               </Link>
             </div>
           </div>

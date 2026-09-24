@@ -70,10 +70,14 @@ export default function BuildPage() {
         </h2>
         <div className="mb-6.5 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {buildProjects.map((project) => (
-            <PortfolioCard key={project.slug} project={project} />
+            <PortfolioCard
+              key={project.slug}
+              project={project}
+              href={`/build/portfolio/${project.slug}`}
+            />
           ))}
         </div>
-        <Link href="#" className="font-mono text-sm text-build hover:underline">
+        <Link href="/build/portfolio" className="font-mono text-sm text-build hover:underline">
           View all Build work →
         </Link>
       </section>

@@ -42,11 +42,8 @@
   - Alt surface (section background): `#EEF2F6`
   - **Build accent:** `#0369A1` — tervalidasi (dipakai khusus di konteks `/build`)
   - **Grow accent:** `#E8963C` — pilihan sendiri, tidak ada padanan hangat yang pas di database untuk pairing dual-accent Build/Grow; sengaja beda chroma dari Build supaya 2 vertical terasa berbeda tapi tetap 1 sistem
-- **Tipografi:**
-  - Display: **Space Grotesk** (600/700) — tervalidasi lewat pencarian typography domain (pairing "Web3/DeFi", karakter geometris-teknikal)
-  - Body: **IBM Plex Sans** (400/500/600)
-  - Utility/mono (eyebrow, label, nav, tag): **IBM Plex Mono** (400/500) — dipakai konsisten di seluruh situs sebagai penanda "dibangun oleh developer"
-  - **Disimpangi dari rekomendasi tool:** `ui-ux-pro-max` menyarankan EB Garamond/Lato (kesan legal/formal) — terlalu kaku untuk agency kreatif dev+marketing, jadi tidak dipakai.
+- **Tipografi:** ~~Space Grotesk (display) + IBM Plex Sans (body) + IBM Plex Mono (utility)~~ → **diganti ke Montserrat tunggal** (feedback user, 2026-09-24) untuk semua role (display/body/eyebrow-label/nav). Weight 400/500/600/700. Label/eyebrow tetap dibedakan lewat uppercase + letter-spacing + ukuran kecil (bukan lagi lewat karakter monospace).
+  - Alasan awal pilih 3-font system: karakter "engineered" dual-role (lihat log lama). Trade-off yang disadari: kehilangan tekstur mono yang jadi bagian dari "signature", tapi user sudah lihat mockup & minta disederhanakan — dituruti karena ini keputusan sadar setelah lihat hasil, bukan asumsi awal.
 - **Signature element — "The Seam":** garis 3px `linear-gradient(90deg, Build accent, Grow accent)` yang muncul di wordmark logo, footer, dan sebagai connector antara 2 kartu Build/Grow di Hub. Di halaman `/build` seam solid biru, di `/grow` solid amber — jadi penanda konteks sekaligus metafora "satu thread, tanpa handoff".
 - **Motion:** Subtle scroll reveal (fade + translateY 12px, 300-400ms, ease-out) — tervalidasi `ui-ux-pro-max` dial motion=2, sama persis dengan prinsip di section 8 (Motion & Animasi).
 
@@ -171,6 +168,7 @@ Grow, About, Profile, Contact, Portfolio belum di-mockup — nunggu feedback ara
 | Hero (headline/subhead/CTA) | Stagger ringan saat load, sekali saja | Bahasa entrance utama situs |
 | Portfolio card | Scale ~1.03-1.05 + caption muncul saat hover | Bukan tilt/rotate/blur |
 | Service card | Lift halus (translateY -4px) + shadow saat hover | Bukan bounce |
+| Button/CTA | Scale 1.03 (hover) / 0.98 (active) + transisi warna, ~150ms | Ditambahkan per feedback user 2026-09-24 — skala kecil, konsisten dengan rentang "Portfolio card" di atas, bukan efek baru yang berlebihan |
 | Nav | Underline/indicator slide ke link aktif | |
 | Form | Feedback validasi & sukses yang jelas tapi cepat | |
 | Section reveal (scroll) | Bahasa entrance yang sama dari hero, trigger sekali | Dipakai selektif, bukan di semua section |

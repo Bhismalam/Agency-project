@@ -5,6 +5,8 @@ import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Tag } from "@/components/ui/tag";
 import { CTASection } from "@/components/ui/cta-section";
 import { Reveal } from "@/components/ui/reveal";
+import { ArticleCard } from "@/components/article-card";
+import { posts } from "@/lib/data/blog";
 
 export default function HomePage() {
   return (
@@ -185,29 +187,14 @@ export default function HomePage() {
           <h2 className="mb-9 font-display text-2xl font-semibold sm:text-[30px]">
             Latest from the blog
           </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div>
-              <ImagePlaceholder label="[Article image]" className="mb-3.5 h-[150px] w-full" />
-              <div className="mb-1.5 text-[15px] font-semibold">[Article title]</div>
-              <div className="font-mono text-[11px] text-muted">
-                [Date] · <span className="text-build">Build</span>
-              </div>
-            </div>
-            <div>
-              <ImagePlaceholder label="[Article image]" className="mb-3.5 h-[150px] w-full" />
-              <div className="mb-1.5 text-[15px] font-semibold">[Article title]</div>
-              <div className="font-mono text-[11px] text-muted">
-                [Date] · <span className="text-grow-ink">Grow</span>
-              </div>
-            </div>
-            <div>
-              <ImagePlaceholder label="[Article image]" className="mb-3.5 h-[150px] w-full" />
-              <div className="mb-1.5 text-[15px] font-semibold">[Article title]</div>
-              <div className="font-mono text-[11px] text-muted">
-                [Date] · <span className="text-grow-ink">Grow</span>
-              </div>
-            </div>
+          <div className="mb-7 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {posts.map((post) => (
+              <ArticleCard key={post.slug} post={post} />
+            ))}
           </div>
+          <Link href="/blog" className="font-mono text-sm hover:underline">
+            View all posts →
+          </Link>
         </div>
       </section>
 

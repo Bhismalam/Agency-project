@@ -70,10 +70,14 @@ export default function GrowPage() {
         </h2>
         <div className="mb-6.5 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {growProjects.map((project) => (
-            <PortfolioCard key={project.slug} project={project} />
+            <PortfolioCard
+              key={project.slug}
+              project={project}
+              href={`/grow/portfolio/${project.slug}`}
+            />
           ))}
         </div>
-        <Link href="#" className="font-mono text-sm text-grow-ink hover:underline">
+        <Link href="/grow/portfolio" className="font-mono text-sm text-grow-ink hover:underline">
           View all Grow work →
         </Link>
       </section>

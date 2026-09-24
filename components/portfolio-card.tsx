@@ -1,10 +1,17 @@
+import Link from "next/link";
 import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Tag } from "@/components/ui/tag";
 import type { Project } from "@/lib/data/portfolio";
 
-export function PortfolioCard({ project }: { project: Project }) {
-  return (
-    <div>
+export function PortfolioCard({
+  project,
+  href,
+}: {
+  project: Project;
+  href?: string;
+}) {
+  const content = (
+    <>
       <ImagePlaceholder
         label="[Project image]"
         className="mb-3.5 h-[180px] w-full"
@@ -13,6 +20,16 @@ export function PortfolioCard({ project }: { project: Project }) {
         {project.name}
       </div>
       <Tag tone={project.vertical}>{project.tag}</Tag>
-    </div>
+    </>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        {content}
+      </Link>
+    );
+  }
+
+  return <div>{content}</div>;
 }
