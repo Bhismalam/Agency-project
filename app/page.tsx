@@ -54,7 +54,7 @@ export default function HomePage() {
             >
               <Eyebrow className="text-build">Build</Eyebrow>
               <div className="mb-3 font-display text-xl font-semibold leading-snug sm:text-[23px]">
-                Web Development · UI/UX · Technical SEO
+                Web Development · UI/UX Design · Data Base & CMS 
               </div>
               <p className="flex-grow text-sm leading-relaxed text-muted">
                 Sites engineered to load fast, rank well, and hold up under
@@ -104,13 +104,13 @@ export default function HomePage() {
             <div className="flex items-center gap-3.5">
               <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full bg-build" />
               <span className="text-sm font-semibold">
-                [Nama Kamu] — Web Dev, UI/UX, SEO
+                Bagus Bhismantara — Web Dev, UI/UX desaigner, Data Base & CMS 
               </span>
             </div>
             <div className="flex items-center gap-3.5">
               <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full bg-grow" />
               <span className="text-sm font-semibold">
-                [Nama Pasangan] — Marketing, Social, SEO
+                Engrasia Ivanna— Marketing, Social Media Spesialis, SEO
               </span>
             </div>
           </div>

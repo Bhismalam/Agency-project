@@ -169,7 +169,10 @@ Grow, About, Profile, Contact, Portfolio belum di-mockup — nunggu feedback ara
 | Portfolio card | Scale ~1.03-1.05 + caption muncul saat hover | Bukan tilt/rotate/blur |
 | Service card | Lift halus (translateY -4px) + shadow saat hover | Bukan bounce |
 | Button/CTA | Scale 1.03 (hover) / 0.98 (active) + transisi warna, ~150ms | Ditambahkan per feedback user 2026-09-24 — skala kecil, konsisten dengan rentang "Portfolio card" di atas, bukan efek baru yang berlebihan |
-| Nav | Underline/indicator slide ke link aktif | |
+| Nav | Underline slide-in per link (scaleX 0→1, ~200ms), warna sesuai tujuan (Build biru/Grow amber/lainnya ink) | Implemented 2026-09-24. Warna underline saat hover jadi preview "kamu akan masuk ke sisi mana" — bukan dekorasi, functional signal |
+| Nav (mobile menu) | Buka/tutup pakai CSS grid-rows trick (0fr↔1fr), ~200ms | Implemented 2026-09-24, ganti dari show/hide instan |
+| Header (scroll) | Shadow tipis muncul setelah scroll >8px | Implemented 2026-09-24 — sinyal nyata (posisi scroll), bukan animasi hias |
+| Logo/Seam | Garis Seam di logo melebar (w-7→w-10) saat hover | Implemented 2026-09-24, delight kecil di brand mark |
 | Form | Feedback validasi & sukses yang jelas tapi cepat | |
 | Section reveal (scroll) | Bahasa entrance yang sama dari hero, trigger sekali | Dipakai selektif, bukan di semua section |
 
