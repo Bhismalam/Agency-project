@@ -3,10 +3,7 @@ type Step = {
   description: string;
 };
 
-/**
- * Numbered steps connected by a thin seam-colored line — reads as one flow
- * rather than four disconnected islands. Used by both /build and /grow.
- */
+/** Four stages read as one continuous rule with numbered stops. Used by /build and /grow. */
 export function ProcessSteps({
   steps,
   tone,
@@ -14,30 +11,26 @@ export function ProcessSteps({
   steps: Step[];
   tone: "build" | "grow";
 }) {
-  const ringColor = tone === "build" ? "border-build text-build" : "border-grow text-grow-ink";
-  const lineColor = tone === "build" ? "bg-build" : "bg-grow";
+  const numberColor = tone === "build" ? "text-build" : "text-grow-ink";
 
   return (
-    <div className="relative grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-6">
-      <div
-        aria-hidden="true"
-        className={`absolute top-[17px] left-[17px] right-[17px] hidden h-[2px] sm:block ${lineColor} opacity-30`}
-      />
+    <ol className="grid grid-cols-1 border-t border-ink sm:grid-cols-2 lg:grid-cols-4">
       {steps.map((step, index) => (
-        <div key={step.title} className="relative z-10">
-          <div
-            className={`mb-3.5 flex h-[34px] w-[34px] items-center justify-center rounded-full border-[1.5px] bg-alt font-mono text-[13px] font-medium ${ringColor}`}
-          >
-            {index + 1}
+        <li
+          key={step.title}
+          className="border-b border-line py-7 sm:px-6 sm:odd:pl-0 lg:border-b-0 lg:border-r lg:first:pl-0 lg:odd:pl-6 lg:last:border-r-0"
+        >
+          <div className={`mb-8 font-display text-[15px] font-semibold tabular-nums ${numberColor}`}>
+            0{index + 1}
           </div>
-          <div className="mb-1.5 font-sans text-sm font-semibold">
+          <div className="mb-2 font-display text-xl font-semibold tracking-tight">
             {step.title}
           </div>
-          <div className="text-xs leading-relaxed text-muted">
+          <div className="max-w-[28ch] text-[15px] leading-relaxed text-muted">
             {step.description}
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ol>
   );
 }

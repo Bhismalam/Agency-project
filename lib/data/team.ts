@@ -27,7 +27,7 @@ export const team: TeamMember[] = [
   },
   {
     slug: "grow-lead",
-    name: "[Nama Pasangan]",
+    name: "Engrasia Ivanna",
     vertical: "grow",
     role: "Marketing, Social Media Specialist, SEO",
     tagline: "[1-2 sentence tagline — what makes your approach to growth distinct]",

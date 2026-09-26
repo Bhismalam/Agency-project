@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
 import { ImagePlaceholder } from "@/components/ui/image-placeholder";
@@ -39,13 +38,13 @@ export default async function ProfilePage(props: {
 
   return (
     <>
-      <div className="mx-auto max-w-[1440px] px-6 pt-5 sm:px-10">
-        <Link href="/about" className="font-mono text-[13px] text-muted hover:text-ink">
+      <div className="mx-auto max-w-site px-6 pt-5 sm:px-8 lg:px-10 2xl:px-16">
+        <Link href="/about" className="font-sans text-[13px] text-muted hover:text-ink">
           ← Back to About
         </Link>
       </div>
 
-      <section className="mx-auto flex max-w-[1440px] flex-col items-center gap-10 px-6 py-10 sm:px-10 md:flex-row md:items-center">
+      <section className="mx-auto flex max-w-site flex-col items-center gap-10 px-6 py-10 sm:px-8 lg:px-10 2xl:px-16 md:flex-row md:items-center">
         <div
           className="h-[220px] w-[220px] flex-shrink-0 rounded-full sm:h-[280px] sm:w-[280px]"
           style={{
@@ -55,8 +54,7 @@ export default async function ProfilePage(props: {
           aria-hidden="true"
         />
         <div className="flex-1 text-center md:text-left">
-          <Eyebrow className={accent}>{verticalLabel}</Eyebrow>
-          <h1 className="mb-2 font-display text-3xl font-semibold sm:text-[38px]">
+          <h1 className="mb-2 font-display text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[1.02] font-semibold tracking-[-0.035em]">
             {member.name}
           </h1>
           <div className="mb-5 text-[17px] text-muted">{member.role}</div>
@@ -74,21 +72,19 @@ export default async function ProfilePage(props: {
         </div>
       </section>
 
-      <section className="bg-alt px-6 py-14 sm:px-10">
-        <div className="mx-auto max-w-[1440px]">
-          <Eyebrow>Background</Eyebrow>
-          <h2 className="mb-5 font-display text-2xl font-semibold sm:text-[26px]">
+      <section className="bg-alt px-6 py-14 sm:px-8 lg:px-10 2xl:px-16">
+        <div className="mx-auto max-w-inner">
+          <h2 className="mb-5 font-display text-[clamp(2rem,4.5vw,3rem)] leading-[1.05] font-semibold tracking-[-0.03em]">
             Bio
           </h2>
-          <p className="max-w-[760px] text-[15px] leading-relaxed text-[#334155]">
+          <p className="max-w-[760px] text-[15px] leading-relaxed text-muted">
             {member.bio}
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-14 sm:px-10">
-        <Eyebrow>Skills &amp; tools</Eyebrow>
-        <h2 className="mb-6 font-display text-2xl font-semibold sm:text-[26px]">
+      <section className="mx-auto max-w-site px-6 py-14 sm:px-8 lg:px-10 2xl:px-16">
+        <h2 className="mb-6 font-display text-[clamp(2rem,4.5vw,3rem)] leading-[1.05] font-semibold tracking-[-0.03em]">
           What I work with
         </h2>
         <div className="flex flex-wrap gap-2.5">
@@ -100,10 +96,9 @@ export default async function ProfilePage(props: {
         </div>
       </section>
 
-      <section className="bg-alt px-6 py-14 sm:px-10">
-        <div className="mx-auto max-w-[1440px]">
-          <Eyebrow>Experience</Eyebrow>
-          <h2 className="mb-7 font-display text-2xl font-semibold sm:text-[26px]">
+      <section className="bg-alt px-6 py-14 sm:px-8 lg:px-10 2xl:px-16">
+        <div className="mx-auto max-w-inner">
+          <h2 className="mb-7 font-display text-[clamp(2rem,4.5vw,3rem)] leading-[1.05] font-semibold tracking-[-0.03em]">
             Credentials &amp; experience
           </h2>
           <div className="flex flex-col gap-5">
@@ -120,7 +115,7 @@ export default async function ProfilePage(props: {
                   <div className="text-[15px] font-semibold">{item.title}</div>
                   <div className="text-[13px] text-muted">{item.context}</div>
                 </div>
-                <div className="font-mono text-[13px] text-muted">
+                <div className="font-sans text-[13px] text-muted">
                   {item.period}
                 </div>
               </div>
@@ -129,26 +124,25 @@ export default async function ProfilePage(props: {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-14 sm:px-10">
-        <Eyebrow>Selected work</Eyebrow>
-        <h2 className="mb-7 font-display text-2xl font-semibold sm:text-[26px]">
+      <section className="mx-auto max-w-site px-6 py-14 sm:px-8 lg:px-10 2xl:px-16">
+        <h2 className="mb-7 font-display text-[clamp(2rem,4.5vw,3rem)] leading-[1.05] font-semibold tracking-[-0.03em]">
           {workLabel}
         </h2>
-        <div className="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <ImagePlaceholder label="[Project image]" className="mb-3.5 h-[180px] w-full" />
+            <ImagePlaceholder label="[Project image]" className="mb-3.5 aspect-[4/3] w-full" />
             <div className="text-[15px] font-semibold">[Project name]</div>
           </div>
           <div>
-            <ImagePlaceholder label="[Project image]" className="mb-3.5 h-[180px] w-full" />
+            <ImagePlaceholder label="[Project image]" className="mb-3.5 aspect-[4/3] w-full" />
             <div className="text-[15px] font-semibold">[Project name]</div>
           </div>
           <div>
-            <ImagePlaceholder label="[Project image]" className="mb-3.5 h-[180px] w-full" />
+            <ImagePlaceholder label="[Project image]" className="mb-3.5 aspect-[4/3] w-full" />
             <div className="text-[15px] font-semibold">[Project name]</div>
           </div>
         </div>
-        <Link href={verticalHref} className={`font-mono text-sm hover:underline ${accent}`}>
+        <Link href={verticalHref} className={`font-sans text-sm hover:underline ${accent}`}>
           View all {verticalLabel} work →
         </Link>
       </section>

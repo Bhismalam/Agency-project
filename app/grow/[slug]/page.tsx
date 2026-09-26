@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { CTASection } from "@/components/ui/cta-section";
 import { growServices, getService } from "@/lib/data/services";
@@ -28,18 +27,17 @@ export default async function GrowServicePage(props: {
 
   return (
     <>
-      <div className="mx-auto max-w-[1440px] px-6 pt-5 sm:px-10">
-        <Link href="/grow" className="font-mono text-[13px] text-muted hover:text-ink">
+      <div className="mx-auto max-w-site px-6 pt-5 sm:px-8 lg:px-10 2xl:px-16">
+        <Link href="/grow" className="font-sans text-[13px] text-muted hover:text-ink">
           ← Back to Grow
         </Link>
       </div>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-10 sm:px-10 md:py-14">
-        <Eyebrow className="text-grow-ink">Grow</Eyebrow>
-        <h1 className="mb-4 max-w-[640px] font-display text-3xl font-semibold sm:text-[42px]">
+      <section className="mx-auto max-w-site px-6 py-10 sm:px-8 lg:px-10 2xl:px-16 md:py-14">
+        <h1 className="mb-4 max-w-[640px] font-display text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[1.02] font-semibold tracking-[-0.035em]">
           {service.title}
         </h1>
-        <p className="mb-7 max-w-[560px] text-base leading-relaxed text-muted">
+        <p className="mb-8 max-w-[52ch] text-xl leading-relaxed text-muted">
           {service.description}
         </p>
         <Button href="/contact" variant="solid">
@@ -47,19 +45,19 @@ export default async function GrowServicePage(props: {
         </Button>
       </section>
 
-      <section className="bg-alt px-6 py-14 sm:px-10">
-        <div className="mx-auto max-w-[1440px]">
-          <Eyebrow>Overview</Eyebrow>
-          <p className="mb-8 max-w-[720px] text-[15px] leading-relaxed text-[#334155]">
+      <section className="bg-alt px-6 py-20 sm:px-8 lg:px-10 2xl:px-16 md:py-24">
+        <div className="mx-auto max-w-inner">
+          <p className="mb-10 max-w-[60ch] text-xl leading-relaxed text-muted">
             {service.detail}
           </p>
-          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {service.bullets.map((bullet) => (
+          <ul className="border-t border-ink">
+            {service.bullets.map((bullet, i) => (
               <li
                 key={bullet}
-                className="rounded-md border border-line border-t-[3px] border-t-grow bg-card p-5 text-[13px] leading-relaxed text-muted"
+                className="grid grid-cols-[3rem_1fr] border-b border-line py-5 text-lg leading-relaxed"
               >
-                {bullet}
+                <span className="font-display font-semibold tabular-nums text-grow-ink">0{i + 1}</span>
+                <span>{bullet}</span>
               </li>
             ))}
           </ul>

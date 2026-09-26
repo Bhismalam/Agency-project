@@ -1,8 +1,8 @@
 import { cn } from "@/lib/cn";
 
 const toneClasses = {
-  build: "bg-build-tint text-build",
-  grow: "bg-grow-tint text-grow-ink",
+  build: "bg-build text-white",
+  grow: "bg-grow text-ink",
 } as const;
 
 export function Tag({
@@ -15,7 +15,7 @@ export function Tag({
   return (
     <span
       className={cn(
-        "inline-block rounded-sm px-2.5 py-1 font-mono text-[11px] tracking-wide",
+        "inline-block rounded-full px-3 py-1 text-[12px] font-semibold",
         toneClasses[tone],
       )}
     >

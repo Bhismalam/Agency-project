@@ -1,28 +1,96 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: var(--font-montserrat), sans-serif;
-  --font-sans: var(--font-montserrat), sans-serif;
-  --font-mono: var(--font-montserrat), sans-serif;
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-sans: var(--font-hanken), sans-serif;
+  --font-mono: var(--font-hanken), sans-serif;
 
-  --color-ink: #0f172a;
-  --color-muted: #475569;
-  --color-paper: #f8fafc;
-  --color-card: #ffffff;
-  --color-line: #e2e8f0;
-  --color-alt: #eef2f6;
+  --color-ink: #0e0f12;
+  --color-muted: #55585f;
+  --color-paper: #f3f2ee;
+  --color-card: #faf9f6;
+  --color-line: #d9d7cf;
+  --color-alt: #e9e7e0;
 
-  --color-build: #0369a1;
-  --color-build-tint: #e0f2fe;
-  --color-grow: #e8963c;
-  --color-grow-tint: #fdf1e2;
-  --color-grow-ink: #9a5b15;
+  --color-build: #12276b;
+  --color-build-deep: #0a1747;
+  --color-build-tint: #dce3f5;
+  --color-grow: #6fe3b5;
+  --color-grow-tint: #d9f7ea;
+  --color-grow-ink: #0b6b47;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --site-w: 1440px;
+  --site-pad: 1.5rem;
+}
+@media (min-width: 40rem) {
+  :root { --site-pad: 2rem; }
+}
+@media (min-width: 64rem) {
+  :root { --site-pad: 2.5rem; }
+}
+@media (min-width: 96rem) {
+  :root { --site-w: 1760px; --site-pad: 4rem; }
+}
+
+/* Content width without its side padding, for inner wrappers inside padded sections. */
+@utility max-w-inner {
+  max-width: 1360px;
+  @media (min-width: 96rem) {
+    max-width: 1632px;
+  }
+}
+
+/* Padding that lines full-bleed fields up with the centered content column. */
+@utility pl-site {
+  padding-left: max(var(--site-pad), calc((100vw - var(--site-w)) / 2 + var(--site-pad)));
+}
+@utility pr-site {
+  padding-right: max(var(--site-pad), calc((100vw - var(--site-w)) / 2 + var(--site-pad)));
+}
+
+@utility max-w-site {
+  max-width: 1440px;
+  @media (min-width: 96rem) {
+    max-width: 1760px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  overflow-x: clip;
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-build);
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

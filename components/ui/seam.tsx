@@ -1,27 +1,27 @@
 import { cn } from "@/lib/cn";
 
 /**
- * The Seam — the site's signature: a thin gradient line running Build → Grow.
- * Context-colored on vertical pages (solid build/grow), gradient elsewhere.
+ * The duo mark — two overlapping discs, Build blue and Grow orange,
+ * their overlap darkening where the two disciplines share the work.
  */
 export function Seam({
-  tone = "gradient",
+  size = 22,
   className,
 }: {
-  tone?: "gradient" | "build" | "grow";
+  tone?: string;
+  size?: number;
   className?: string;
 }) {
-  const background =
-    tone === "gradient"
-      ? "bg-gradient-to-r from-build to-grow"
-      : tone === "build"
-        ? "bg-build"
-        : "bg-grow";
-
   return (
-    <span
+    <svg
       aria-hidden="true"
-      className={cn("block h-[3px] rounded-full", background, className)}
-    />
+      width={size * 1.6}
+      height={size}
+      viewBox="0 0 32 20"
+      className={cn("block", className)}
+    >
+      <circle cx="10" cy="10" r="10" fill="var(--color-build)" />
+      <circle cx="22" cy="10" r="10" fill="var(--color-grow)" style={{ mixBlendMode: "multiply" }} />
+    </svg>
   );
 }

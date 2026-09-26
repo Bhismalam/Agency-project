@@ -30,22 +30,14 @@
 
 ## 1. Gaya Visual
 
-> Disusun via proses brainstorm→self-critique (skill `frontend-design`) lalu divalidasi silang dengan data `ui-ux-pro-max` (query: "b2b professional service agency trust authority", dial variance 3/motion 2/density 4). Detail cross-check ada di log keputusan `prd.md` section 9.
+> Redesain 2026-09-26 (skill Impeccable, arah "standar kategori" dieksekusi penuh; acuan Pentagram, Locomotive, Basement). Menggantikan sistem lama (Montserrat, Seam gradient, biru/amber pucat).
 
-- **Mood/vibe:** Confident, structural, sedikit teknikal — bukan corporate kaku, bukan juga playful/startup generic.
-- **Pattern:** "Trust & Authority + Conversion" (Hero → Proof → Solution → CTA) — tervalidasi `ui-ux-pro-max`, cocok dengan struktur Hub kita.
-- **Palet warna:**
-  - Ink (teks utama): `#0F172A` — tervalidasi `ui-ux-pro-max` (palet "B2B Service")
-  - Muted (teks sekunder): `#475569`
-  - Paper (background): `#F8FAFC` — tervalidasi
-  - Line (border): `#E2E8F0`
-  - Alt surface (section background): `#EEF2F6`
-  - **Build accent:** `#0369A1` — tervalidasi (dipakai khusus di konteks `/build`)
-  - **Grow accent:** `#E8963C` — pilihan sendiri, tidak ada padanan hangat yang pas di database untuk pairing dual-accent Build/Grow; sengaja beda chroma dari Build supaya 2 vertical terasa berbeda tapi tetap 1 sistem
-- **Tipografi:** ~~Space Grotesk (display) + IBM Plex Sans (body) + IBM Plex Mono (utility)~~ → **diganti ke Montserrat tunggal** (feedback user, 2026-09-24) untuk semua role (display/body/eyebrow-label/nav). Weight 400/500/600/700. Label/eyebrow tetap dibedakan lewat uppercase + letter-spacing + ukuran kecil (bukan lagi lewat karakter monospace).
-  - Alasan awal pilih 3-font system: karakter "engineered" dual-role (lihat log lama). Trade-off yang disadari: kehilangan tekstur mono yang jadi bagian dari "signature", tapi user sudah lihat mockup & minta disederhanakan — dituruti karena ini keputusan sadar setelah lihat hasil, bukan asumsi awal.
-- **Signature element — "The Seam":** garis 3px `linear-gradient(90deg, Build accent, Grow accent)` yang muncul di wordmark logo, footer, dan sebagai connector antara 2 kartu Build/Grow di Hub. Di halaman `/build` seam solid biru, di `/grow` solid amber — jadi penanda konteks sekaligus metafora "satu thread, tanpa handoff".
-- **Motion:** Subtle scroll reveal (fade + translateY 12px, 300-400ms, ease-out) — tervalidasi `ui-ux-pro-max` dial motion=2, sama persis dengan prinsip di section 8 (Motion & Animasi).
+- **Mood:** editorial, tegas, tipografi besar, warna sebagai bidang penuh (bukan aksen kecil).
+- **Palet:** Ink `#0E0F12`, Paper `#F3F2EE`, Alt `#E9E7E0`, Line `#D9D7CF`, Muted `#55585F`. **Build** navy `#12276B` (teks putih), **Grow** mint `#6FE3B5` (teks ink), Grow-ink `#0B6B47` untuk teks di atas paper. Strategi: Committed, Hub terbelah dua bidang penuh Build|Grow.
+- **Tipografi:** Bricolage Grotesque (display, 600, tracking -0.035 s/d -0.045em, maks 6rem) + Hanken Grotesk (body/UI). Tanpa kicker/eyebrow di atas heading.
+- **Signature:** mark dua lingkaran tumpang-tindih (navy/mint, multiply) di header/footer; bidang warna penuh per vertical; hero vertical berupa satu bidang warna penuh.
+- **Komponen:** tombol pill (hover: ganti warna + scale 1.02), daftar proyek berbaris (hover mengisi warna vertical), kartu layanan bergaris atas (hover mengisi warna), langkah proses bernomor dengan garis atas.
+- **Motion:** tetap tenang: reveal sekali, hover 200-300ms, hormati prefers-reduced-motion.
 
 ## 2. Sitemap
 
@@ -147,8 +139,11 @@ Grow, About, Profile, Contact, Portfolio belum di-mockup — nunggu feedback ara
 | | | |
 
 ## 7. Catatan Aksesibilitas & Responsif
-- Breakpoint yang perlu didukung:
-- Catatan lain:
+- Breakpoint: sm 640, md 768 (tablet), lg 1024 (desktop; nav penuh, hamburger di bawahnya), xl 1280, 2xl 1536 (monitor besar). Diverifikasi tanpa scroll horizontal di 320, 390, 768, 1024, 1440, 1920, 2560px.
+- Kolom konten: utilitas `max-w-site` (1440px, 1760px di 2xl) untuk elemen yang punya padding sendiri, `max-w-inner` untuk wrapper di dalam section berpadding; bidang penuh (Hub, About) memakai `pl-site`/`pr-site` agar isinya sejajar dengan kolom konten.
+- Grid bertahap 1 kolom (HP), 2 kolom (md), 3 kolom (lg); langkah proses 1, 2, 4.
+- Judul display fluid dengan `clamp()` (min 2.5rem, maks 6rem); gambar placeholder memakai `aspect-*`, bukan tinggi tetap.
+- Menu mobile mengunci scroll saat terbuka; `prefers-reduced-motion` dihormati.
 
 ## 8. Motion & Animasi
 

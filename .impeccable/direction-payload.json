@@ -1,0 +1,89 @@
+{
+  "title": "Pilih dunia visual Agency 2gether",
+  "question": "Roll menetapkan 'Duet Score'. Pakai itu, pilih alternatif, atau re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Duet Score",
+      "kicker": "THE ROLL",
+      "lineage": "partitur piano empat tangan (primo/secondo), tradisi cetak notasi musik",
+      "thesis": "Dua orang memainkan satu lagu di satu papan: Build dan Grow adalah dua bagian partitur yang dibaca bersamaan, bukan dua layanan yang ditumpuk.",
+      "palette": ["#14161c", "#f2efe6", "#1f4fd8", "#ff7a1a"],
+      "materials": ["cetak notasi", "garis paranada", "tinta dua warna"],
+      "viewport": "Satu lembar lebar dengan dua paranada sejajar: atas (Primo, biru, Build) dan bawah (Secondo, oranye, Grow). Headline '1 tim, 2 disiplin, tanpa handoff' jadi judul lagu; CTA 'Mulai proyek' adalah penanda birama akhir.",
+      "risk": "Terbaca gimmick musik jika notasinya dekoratif; harus fungsional (birama = tahap proses, paranada = navigasi).",
+      "raised": [
+        {"from": "Blue Note sleeve", "raise": "Komitmen total pada dua warna spot penuh: ladang datar besar, bukan aksen kecil."},
+        {"from": "Sewing pattern", "raise": "Titik temu (notch) antar dua bagian jadi penanda 'tanpa handoff' yang bisa dilihat di tiap section."}
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Salinan Karbon (NCR)",
+      "kicker": "IMPECCABLE'S PICK",
+      "lineage": "formulir rangkap carbonless (putih/kuning/merah)",
+      "thesis": "Satu goresan, dua salinan: apa yang ditulis di lembar Build otomatis tercetak di lembar Grow, ini persis 'tanpa handoff'.",
+      "palette": ["#f6f2e8", "#e9d23a", "#d8443a", "#1c2a6b"],
+      "materials": ["kertas rangkap", "cap tinta", "nomor seri"],
+      "viewport": "Formulir order bernomor seri dengan tiga lembar bertumpuk; halaman dipindai seperti mengisi formulir.",
+      "risk": "Nuansa kertas krem/merah adalah wilayah yang sering dipilih; familiar bagi banyak run."
+    },
+    {
+      "id": "challenger-bluenote",
+      "label": "Blue Note Sleeve",
+      "verdict": "competitive",
+      "lineage": "sampul album jazz Blue Note, duotone + pita warna datar",
+      "thesis": "Dua warna spot penuh dan foto duotone dipotong keras.",
+      "palette": ["#0d0d0d", "#ff6a13", "#1f4fd8", "#f2efe6"],
+      "materials": ["duotone", "pita warna datar"],
+      "case": "Kuat di identifikasi audiens kreatif dan dua spot warna memetakan Build/Grow; kalah tipis di kejelasan produk karena butuh foto yang belum ada.",
+      "risk": "Bergantung pada foto duotone; saat ini hanya ada 1 foto profil.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-blue-note-session-sleeve-hero.webp"
+    },
+    {
+      "id": "challenger-sewing",
+      "label": "Sewing Pattern Envelope",
+      "verdict": "competitive",
+      "lineage": "amplop pola jahit dengan tissue bergaris potong",
+      "thesis": "Bagian-bagian bernomor yang bertemu di notch: dua disiplin yang dijahit jadi satu.",
+      "palette": ["#e6d9b8", "#111111", "#c8281e"],
+      "materials": ["kertas tissue", "garis putus-putus"],
+      "case": "Metafora 'menyambung' pas untuk duo; namun audiens klien bisnis tidak mengenalnya sehari-hari.",
+      "risk": "Kesan hobi/kerajinan jika tidak dijaga presisi.",
+      "hero": "https://impeccable.style/worlds/cards/fashion-folded-worlds-sewing-pattern-envelope-hero.webp"
+    },
+    {
+      "id": "challenger-teletext",
+      "label": "Teletext Weather",
+      "verdict": "declined",
+      "lineage": "halaman teletext siaran",
+      "palette": ["#000000", "#ffff00", "#00c000", "#0000c0"],
+      "materials": ["mosaik blok"],
+      "case": "Kalah di dua sumbu: klien tidak mengidentifikasi diri, dan navigasi nomor halaman mengaburkan CTA.",
+      "kept": "Grid sel yang ketat: dipakai sebagai disiplin garis paranada.",
+      "hero": "https://impeccable.style/worlds/cards/digital-design-canon-teletext-weather-mosaic-hero.webp"
+    },
+    {
+      "id": "challenger-vu",
+      "label": "VU Meter Bridge",
+      "verdict": "declined",
+      "lineage": "meja rekaman dengan deretan jarum VU",
+      "palette": ["#f1e8d0", "#1a1a1a", "#c8281e"],
+      "materials": ["kaca", "jarum"],
+      "case": "Metafora sinyal tidak terhubung ke jasa web/marketing.",
+      "kept": "Balistik gerak (massa dan redaman): dipakai untuk transisi halus.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "canon": true,
+  "canonCard": {
+    "label": "Standar kategori",
+    "thesis": "Situs agency bersih: hero dua kolom, kartu layanan, portfolio grid, dieksekusi rapi.",
+    "palette": ["#ffffff", "#0f172a", "#0369a1"],
+    "materials": ["grid bersih", "foto proyek"],
+    "viewport": "Susunan yang diharapkan pengunjung, dengan craft penuh.",
+    "risk": "Tidak dapat dibedakan dari kompetitor."
+  },
+  "steer": true
+}

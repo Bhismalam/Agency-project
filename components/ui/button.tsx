@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
-type Variant = "solid" | "line" | "white";
+type Variant = "solid" | "line" | "white" | "build" | "grow";
 
 const variantClasses: Record<Variant, string> = {
-  solid: "bg-ink text-white border border-ink hover:bg-slate-800",
-  line: "bg-transparent text-ink border border-ink hover:bg-ink hover:text-white",
-  white:
-    "bg-transparent text-white border border-white/50 hover:border-white",
+  solid: "bg-ink text-paper border border-ink hover:bg-build hover:border-build",
+  line: "bg-transparent text-ink border border-ink hover:bg-ink hover:text-paper",
+  white: "bg-paper text-ink border border-paper hover:bg-grow hover:border-grow",
+  build: "bg-paper text-build border border-paper hover:bg-ink hover:text-paper hover:border-ink",
+  grow: "bg-ink text-paper border border-ink hover:bg-paper hover:text-ink",
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-[3px] px-7 py-3.5 font-sans text-sm font-semibold transition-[background-color,border-color,color,transform] duration-150 ease-out cursor-pointer hover:scale-[1.03] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-build";
+  "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-sans text-[15px] font-semibold transition-[background-color,border-color,color,transform] duration-200 ease-out cursor-pointer hover:scale-[1.02] active:scale-[0.98]";
 
 type ButtonProps = {
   children: React.ReactNode;

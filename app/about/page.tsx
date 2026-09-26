@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { CTASection } from "@/components/ui/cta-section";
-import { Reveal } from "@/components/ui/reveal";
 import { team } from "@/lib/data/team";
 
 export const metadata: Metadata = {
@@ -14,114 +12,71 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="mx-auto flex max-w-[720px] flex-col items-center gap-4 px-6 py-16 text-center sm:px-10 md:py-20">
-        <Eyebrow>About</Eyebrow>
-        <h1 className="font-display text-3xl font-semibold sm:text-[42px]">
+      <section className="mx-auto max-w-site px-6 pt-16 pb-20 sm:px-8 lg:px-10 2xl:px-16 md:pt-24 md:pb-28">
+        <h1 className="max-w-[12ch] font-display text-[clamp(2.5rem,11vw,6rem)] leading-[0.95] font-semibold tracking-[-0.04em]">
           Two people, one agency
         </h1>
-        <p className="max-w-[560px] text-base leading-relaxed text-muted">
+        <p className="mt-10 max-w-[52ch] text-xl leading-relaxed text-muted">
           [Subtext — the short version of why you two started this together]
         </p>
       </section>
 
-      <section className="bg-alt px-6 py-16 sm:px-10 md:py-18">
-        <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-12 md:flex-row">
+      <section className="bg-alt px-6 py-20 sm:px-8 lg:px-10 2xl:px-16 md:py-28">
+        <div className="mx-auto grid max-w-inner items-center gap-12 md:grid-cols-2 md:gap-20">
           <ImagePlaceholder
             label="[Image — the two of you, candid]"
-            className="h-[280px] w-full flex-1 sm:h-[360px]"
+            className="aspect-[4/3] w-full bg-line"
           />
-          <div className="flex-1">
-            <Eyebrow>Our story</Eyebrow>
-            <p className="text-base leading-relaxed text-[#334155]">
-              [Paragraph — how you met/decided to team up, why dev + marketing
-              together makes sense, what you believe about how agencies
-              should work]
-            </p>
-          </div>
+          <p className="max-w-[46ch] text-lg leading-relaxed text-muted">
+            [Paragraph — how you met/decided to team up, why dev + marketing
+            together makes sense, what you believe about how agencies
+            should work]
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-16 sm:px-10 md:py-18">
-        <Eyebrow>The team</Eyebrow>
-        <h2 className="mb-9 font-display text-[28px] font-semibold">
-          Meet the two of us
-        </h2>
-        <Reveal className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {team.map((member) => (
+      <section className="grid grid-cols-1 md:grid-cols-2">
+        {team.map((member) => {
+          const build = member.vertical === "build";
+          return (
             <Link
               key={member.slug}
               href={`/about/${member.slug}`}
-              className="flex gap-5 rounded-md border border-line bg-card p-7"
+              className={`group flex min-h-[420px] flex-col justify-between ${
+                build ? "bg-build py-6 pr-6 pl-site text-white sm:py-10 sm:pr-10" : "bg-grow py-6 pl-6 pr-site text-ink sm:py-10 sm:pl-10"
+              }`}
             >
-              <div
-                className="h-[110px] w-[110px] flex-shrink-0 rounded-full"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(135deg, var(--color-alt) 0 2px, var(--color-card) 2px 14px)",
-                }}
-                aria-hidden="true"
-              />
-              <div className="flex flex-col">
-                <div className="mb-1 font-display text-lg font-semibold">
+              <div className="flex items-start justify-between gap-6">
+                <div className="text-[15px] font-semibold opacity-80">{build ? "Build" : "Grow"}</div>
+                <span aria-hidden="true" className="text-3xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+              </div>
+              <div>
+                <div className="mb-3 font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] font-semibold tracking-[-0.035em]">
                   {member.name}
                 </div>
-                <div
-                  className={`mb-2.5 text-[13px] ${
-                    member.vertical === "build" ? "text-build" : "text-grow-ink"
-                  }`}
-                >
-                  {member.role}
-                </div>
-                <p className="flex-grow text-[13px] leading-relaxed text-muted">
-                  {member.tagline}
-                </p>
-                <span
-                  className={`font-mono text-[13px] font-medium ${
-                    member.vertical === "build" ? "text-build" : "text-grow-ink"
-                  }`}
-                >
-                  View full profile →
-                </span>
+                <div className="mb-5 text-lg font-medium opacity-90">{member.role}</div>
+                <p className="max-w-[40ch] text-[15px] leading-relaxed opacity-80">{member.tagline}</p>
               </div>
             </Link>
-          ))}
-        </Reveal>
+          );
+        })}
       </section>
 
-      <section className="bg-alt px-6 py-16 sm:px-10 md:py-18">
-        <div className="mx-auto max-w-[1440px]">
-          <Eyebrow>How we work together</Eyebrow>
-          <h2 className="mb-9 font-display text-2xl font-semibold sm:text-[26px]">
-            What you get with two specialists, one team
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-            <div>
-              <div className="mb-2 text-[15px] font-semibold">
-                Direct communication
-              </div>
-              <p className="text-[13px] leading-relaxed text-muted">
-                No account manager in between — you talk to the people doing
-                the work.
-              </p>
+      <section className="mx-auto max-w-site px-6 py-24 sm:px-8 lg:px-10 2xl:px-16 md:py-32">
+        <h2 className="mb-12 max-w-[18ch] font-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1] font-semibold tracking-[-0.035em]">
+          What you get with two specialists, one team
+        </h2>
+        <div className="grid grid-cols-1 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            ["Direct communication", "No account manager in between — you talk to the people doing the work."],
+            ["No handoff friction", "One team sees the whole project, from build to growth."],
+            ["Shared accountability", "Nobody points fingers at “the other vendor” — it’s just us."],
+          ].map(([t, d]) => (
+            <div key={t} className="border-t border-ink py-6">
+              <div className="mb-3 font-display text-2xl font-semibold tracking-[-0.02em]">{t}</div>
+              <p className="max-w-[34ch] text-[15px] leading-relaxed text-muted">{d}</p>
             </div>
-            <div>
-              <div className="mb-2 text-[15px] font-semibold">
-                No handoff friction
-              </div>
-              <p className="text-[13px] leading-relaxed text-muted">
-                One team sees the whole project, from build to growth.
-              </p>
-            </div>
-            <div>
-              <div className="mb-2 text-[15px] font-semibold">
-                Shared accountability
-              </div>
-              <p className="text-[13px] leading-relaxed text-muted">
-                Nobody points fingers at &ldquo;the other vendor&rdquo; — it&rsquo;s
-                just us.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 

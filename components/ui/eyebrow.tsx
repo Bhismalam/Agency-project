@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
 
+/** Small inline label for data fields (contact details, meta) — not a section kicker. */
 export function Eyebrow({
   children,
   className,
@@ -8,12 +9,7 @@ export function Eyebrow({
   className?: string;
 }) {
   return (
-    <div
-      className={cn(
-        "mb-3.5 font-mono text-[11px] tracking-[0.14em] text-muted uppercase",
-        className,
-      )}
-    >
+    <div className={cn("mb-2 text-[13px] font-medium text-muted", className)}>
       {children}
     </div>
   );

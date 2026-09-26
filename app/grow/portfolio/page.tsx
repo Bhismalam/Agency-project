@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Eyebrow } from "@/components/ui/eyebrow";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { CTASection } from "@/components/ui/cta-section";
 import { growProjects } from "@/lib/data/portfolio";
@@ -12,18 +11,17 @@ export const metadata: Metadata = {
 export default function GrowPortfolioPage() {
   return (
     <>
-      <section className="mx-auto flex max-w-[720px] flex-col items-center gap-4 px-6 py-16 text-center sm:px-10 md:py-18">
-        <Eyebrow className="text-grow-ink">Grow portfolio</Eyebrow>
-        <h1 className="font-display text-3xl font-semibold sm:text-[40px]">
+      <section className="mx-auto flex max-w-[720px] flex-col items-center gap-4 px-6 py-16 text-center sm:px-8 lg:px-10 2xl:px-16 md:py-18">
+        <h1 className="max-w-[14ch] font-display text-[clamp(2.5rem,11vw,6rem)] leading-[0.95] font-semibold tracking-[-0.04em]">
           Selected work, grow side
         </h1>
-        <p className="max-w-[500px] text-base leading-relaxed text-muted">
+        <p className="max-w-[52ch] text-xl leading-relaxed text-muted">
           Campaigns shipped for real clients.
         </p>
       </section>
 
-      <section className="bg-alt px-6 py-16 sm:px-10 md:py-18">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-6 sm:grid-cols-3">
+      <section className="bg-alt px-6 py-16 sm:px-8 lg:px-10 2xl:px-16 md:py-18">
+        <div className="mx-auto grid max-w-inner grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {growProjects.map((project) => (
             <PortfolioCard
               key={project.slug}

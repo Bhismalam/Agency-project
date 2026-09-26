@@ -14,9 +14,9 @@ export function PortfolioCard({
     <>
       <ImagePlaceholder
         label="[Project image]"
-        className="mb-3.5 h-[180px] w-full"
+        className="mb-4 aspect-[4/3] w-full transition-opacity duration-300 group-hover:opacity-80"
       />
-      <div className="mb-2 font-sans text-[15px] font-semibold">
+      <div className="mb-2 font-display text-xl font-semibold tracking-[-0.02em]">
         {project.name}
       </div>
       <Tag tone={project.vertical}>{project.tag}</Tag>
@@ -25,7 +25,7 @@ export function PortfolioCard({
 
   if (href) {
     return (
-      <Link href={href} className="block">
+      <Link href={href} className="group block">
         {content}
       </Link>
     );

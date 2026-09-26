@@ -13,7 +13,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function fieldClass(hasError: boolean) {
-  return `w-full rounded border bg-card px-3.5 py-3 font-sans text-sm text-ink outline-none transition-colors focus:border-ink ${
+  return `w-full rounded-lg border bg-card px-4 py-3.5 font-sans text-base text-ink outline-none transition-colors focus:border-ink ${
     hasError ? "border-red-500" : "border-line"
   }`;
 }
@@ -95,7 +95,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-1 flex-col gap-4.5">
       <div>
-        <label htmlFor="name" className="mb-1.5 block font-sans text-[13px] font-semibold">
+        <label htmlFor="name" className="mb-1.5 block font-sans text-sm font-semibold">
           Name <span aria-hidden="true">*</span>
         </label>
         <input
@@ -116,7 +116,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1.5 block font-sans text-[13px] font-semibold">
+        <label htmlFor="email" className="mb-1.5 block font-sans text-sm font-semibold">
           Email <span aria-hidden="true">*</span>
         </label>
         <input
@@ -137,14 +137,14 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="need" className="mb-1.5 block font-sans text-[13px] font-semibold">
+        <label htmlFor="need" className="mb-1.5 block font-sans text-sm font-semibold">
           What do you need?
         </label>
         <select
           id="need"
           name="need"
           defaultValue="both"
-          className="w-full rounded border border-line bg-card px-3.5 py-3 font-sans text-sm text-ink outline-none focus:border-ink"
+          className="w-full rounded-lg border border-line bg-card px-4 py-3.5 font-sans text-base text-ink outline-none focus:border-ink"
         >
           <option value="build">Build — Web Dev / UI-UX / SEO Technical</option>
           <option value="grow">Grow — Marketing / Social Media / SEO Content</option>
@@ -154,7 +154,7 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-1 flex-col">
-        <label htmlFor="message" className="mb-1.5 block font-sans text-[13px] font-semibold">
+        <label htmlFor="message" className="mb-1.5 block font-sans text-sm font-semibold">
           Message <span aria-hidden="true">*</span>
         </label>
         <textarea
@@ -182,7 +182,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="self-start rounded-[3px] border border-ink bg-ink px-7 py-3.5 font-sans text-sm font-semibold text-white transition-colors hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+        className="self-start rounded-full border border-ink bg-ink px-8 py-4 font-sans text-[15px] font-semibold text-paper transition-colors hover:border-build hover:bg-build disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send Inquiry"}
       </button>

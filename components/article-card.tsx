@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import type { Post } from "@/lib/data/blog";
 
 export function ArticleCard({ post }: { post: Post }) {
@@ -7,13 +6,14 @@ export function ArticleCard({ post }: { post: Post }) {
   const label = post.vertical === "build" ? "Build" : "Grow";
 
   return (
-    <Link href={`/blog/${post.slug}`} className="block">
-      <ImagePlaceholder label="[Article image]" className="mb-3.5 h-[160px] w-full" />
-      <div className="mb-1.5 text-[15px] font-semibold">{post.title}</div>
-      <p className="mb-2 text-[13px] leading-relaxed text-muted">{post.excerpt}</p>
-      <div className="font-mono text-[11px] text-muted">
-        {post.date} · <span className={accent}>{label}</span>
+    <Link href={`/blog/${post.slug}`} className="group flex h-full flex-col border-t border-ink pt-5">
+      <div className={`mb-6 text-[13px] font-semibold ${accent}`}>
+        {label} <span className="font-normal text-muted">· {post.date}</span>
       </div>
+      <div className="mb-3 font-display text-2xl leading-tight font-semibold tracking-[-0.02em] transition-colors group-hover:text-build">
+        {post.title}
+      </div>
+      <p className="max-w-[40ch] text-[15px] leading-relaxed text-muted">{post.excerpt}</p>
     </Link>
   );
 }

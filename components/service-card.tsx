@@ -2,23 +2,24 @@ import Link from "next/link";
 import type { Service } from "@/lib/data/services";
 
 export function ServiceCard({ service }: { service: Service }) {
-  const accent = service.vertical === "build" ? "border-build" : "border-grow";
-  const linkColor = service.vertical === "build" ? "text-build" : "text-grow-ink";
+  const hover = service.vertical === "build" ? "hover:bg-build hover:text-white" : "hover:bg-grow hover:text-ink";
 
   return (
-    <div className={`flex h-[200px] flex-col rounded-md border border-t-[3px] border-line bg-card p-6.5 ${accent}`}>
-      <div className="mb-2.5 font-display text-[17px] font-semibold">
-        {service.title}
+    <Link
+      href={`/${service.vertical}/${service.slug}`}
+      className={`group flex min-h-[260px] flex-col justify-between border-t border-ink bg-transparent p-6 transition-colors duration-300 ease-out ${hover}`}
+    >
+      <div>
+        <div className="mb-4 font-display text-[26px] leading-tight font-semibold tracking-[-0.02em]">
+          {service.title}
+        </div>
+        <p className="max-w-[34ch] text-[15px] leading-relaxed opacity-75">
+          {service.description}
+        </p>
       </div>
-      <p className="flex-grow text-[13px] leading-relaxed text-muted">
-        {service.description}
-      </p>
-      <Link
-        href={`/${service.vertical}/${service.slug}`}
-        className={`font-mono text-xs uppercase tracking-wide ${linkColor} hover:underline`}
-      >
-        Learn more →
-      </Link>
-    </div>
+      <span className="mt-8 text-[15px] font-semibold">
+        Learn more <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+      </span>
+    </Link>
   );
 }
