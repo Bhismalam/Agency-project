@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ContactForm } from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
+import { SocialLinks } from "@/components/social-links";
 import { contact, whatsappHref } from "@/lib/data/contact";
 
 export const metadata: Metadata = {
@@ -34,20 +35,8 @@ export default function ContactPage() {
               </a>
             </div>
             <div>
-              <Eyebrow className="mb-1.5">Social</Eyebrow>
-              <a href={whatsappHref()} className="block text-lg text-muted hover:text-ink">
-                WhatsApp
-              </a>
-              {contact.instagram && (
-                <a href={contact.instagram} className="block text-lg text-muted hover:text-ink">
-                  Instagram
-                </a>
-              )}
-              {contact.linkedin && (
-                <a href={contact.linkedin} className="block text-lg text-muted hover:text-ink">
-                  LinkedIn
-                </a>
-              )}
+              <Eyebrow className="mb-3">Social</Eyebrow>
+              <SocialLinks />
             </div>
             <div>
               <Eyebrow className="mb-1.5">Response time</Eyebrow>
