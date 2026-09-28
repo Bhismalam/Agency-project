@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ContactForm } from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
+import { contact, whatsappHref } from "@/lib/data/contact";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,24 +29,35 @@ export default function ContactPage() {
           <div className="flex flex-1 flex-col gap-5 border-t border-ink pt-6">
             <div>
               <Eyebrow className="mb-1.5">Email</Eyebrow>
-              <div className="text-lg font-medium">[hello@domain.com]</div>
+              <a href={`mailto:${contact.email}`} className="text-lg font-medium hover:text-build">
+                {contact.email}
+              </a>
             </div>
             <div>
               <Eyebrow className="mb-1.5">Social</Eyebrow>
-              <div className="text-lg text-muted">[Instagram]</div>
-              <div className="text-lg text-muted">[LinkedIn]</div>
+              <a href={whatsappHref()} className="block text-lg text-muted hover:text-ink">
+                WhatsApp
+              </a>
+              {contact.instagram && (
+                <a href={contact.instagram} className="block text-lg text-muted hover:text-ink">
+                  Instagram
+                </a>
+              )}
+              {contact.linkedin && (
+                <a href={contact.linkedin} className="block text-lg text-muted hover:text-ink">
+                  LinkedIn
+                </a>
+              )}
             </div>
             <div>
               <Eyebrow className="mb-1.5">Response time</Eyebrow>
-              <div className="text-lg text-muted">
-                [We reply within X business days]
-              </div>
+              <div className="text-lg text-muted">{contact.responseTime}</div>
             </div>
             <div className="mt-auto border-t border-line pt-4">
               <p className="mb-3 text-[13px] text-muted">
                 Prefer to talk directly?
               </p>
-              <Button href="#" variant="line" className="w-full">
+              <Button href={whatsappHref("Hi, I'd like to schedule a call about a project.")} variant="line" className="w-full">
                 Schedule a Call
               </Button>
             </div>

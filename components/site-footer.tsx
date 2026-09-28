@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Seam } from "@/components/ui/seam";
+import { contact, whatsappHref } from "@/lib/data/contact";
 
 const linkClass = "text-[15px] text-muted transition-colors hover:text-ink";
 
@@ -34,8 +35,12 @@ export function SiteFooter() {
 
           <div className="flex flex-col gap-3">
             <div className="text-[13px] font-semibold">Contact</div>
-            <span className="text-[15px] text-muted">[email@domain.com]</span>
-            <span className="text-[15px] text-muted">[Instagram / LinkedIn]</span>
+            <a href={`mailto:${contact.email}`} className="text-[15px] text-muted hover:text-ink">
+              {contact.email}
+            </a>
+            <a href={whatsappHref()} className="text-[15px] text-muted hover:text-ink">
+              WhatsApp
+            </a>
             <Link href="/contact" className="text-[15px] font-semibold underline underline-offset-[6px] hover:text-build">
               Start a project →
             </Link>
