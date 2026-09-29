@@ -24,6 +24,7 @@ export function SiteFooter() {
             <div className="text-[13px] font-semibold">Studio</div>
             <Link href="/" className={linkClass}>Home</Link>
             <Link href="/about" className={linkClass}>About</Link>
+            <Link href="/program" className={linkClass}>Program</Link>
             <Link href="/blog" className={linkClass}>Blog</Link>
           </div>
 

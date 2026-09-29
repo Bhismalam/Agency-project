@@ -60,12 +60,14 @@ Hub (/)
 │   ├── SEO — Content (/grow/seo)
 │   └── Portfolio (/grow/portfolio)              — grid campaign
 │       └── Project Detail (/grow/portfolio/[slug])
+├── Program (/program)                           — daftar program/internship yang dijalankan agency
+│   └── Program Detail (/program/[slug])         — info program + form pendaftaran (dengan upload CV)
 ├── Blog (/blog)                                 — gabungan, bisa difilter kategori Build/Grow
 │   └── Post Detail (/blog/[slug])
 └── Contact (/contact)                           — form terpusat, 1 untuk semua permintaan
 ```
 
-- **Nav header:** Home, About, Build, Grow, Blog, Contact — tampil di semua halaman. "About" sekarang link ke halaman `/about` sungguhan (bukan lagi anchor scroll `#about` di Hub).
+- **Nav header:** Home, About, Build, Grow, Program, Blog, Contact — tampil di semua halaman. "Program" berdiri sendiri (bukan bagian Build/Grow) karena mencakup internship/program lintas disiplin. "About" sekarang link ke halaman `/about` sungguhan (bukan lagi anchor scroll `#about` di Hub).
 - **Hub (`/`)** menampilkan ringkasan KEDUA vertical berdampingan (bukan salah satu didahulukan) — supaya positioning "1 tim, 2 disiplin, tanpa handoff" langsung kelihatan dari homepage. Section "Why Us" di Hub tetap ada tapi ringkas (foto+nama+role saja), dengan link "Lihat profil lengkap →" ke `/about`.
 - **`/about`** adalah halaman index yang cerita tentang duo (kenapa berdua bikin agency ini), lalu 2 kartu besar link ke profil masing-masing.
 - **`/about/[slug]`** — profil individual lengkap: foto, bio, kredensial/pengalaman, skillset spesifik, mungkin portfolio personal/CV-style. Person yang megang Build (dev/UI-UX/SEO teknis) dan person yang megang Grow (marketing/sosmed/SEO konten) masing-masing dapat 1 halaman.

@@ -16,7 +16,7 @@ Website company profile untuk Agency 2gether, agency dua orang. Berfungsi sebaga
 "1 tim, 2 disiplin, tanpa handoff": pengembangan (Build) dan marketing (Grow) dipegang satu tim kecil, klien punya akses langsung ke dua orang yang mengerjakan. Ini fakta struktural (memang hanya dua orang), bukan klaim marketing.
 
 ## Operating Context
-Struktur Hub + 2 Vertical dalam satu domain: `/` (Hub), `/about` (+ 2 profil `/about/[slug]`), `/build` (Web Development, UI/UX Design, SEO teknis, portfolio), `/grow` (Marketing, Social Media, SEO konten, portfolio), `/blog`, `/contact`. Tidak ada harga di halaman manapun; CTA selalu ke Contact. Form Contact punya opsi Build / Grow / Keduanya. Stack: Next.js 16 (App Router), React 19, Tailwind 4, Resend untuk email form.
+Struktur Hub + 2 Vertical dalam satu domain: `/` (Hub), `/about` (+ 2 profil `/about/[slug]`), `/build` (Web Development, UI/UX Design, SEO teknis, portfolio), `/grow` (Marketing, Social Media, SEO konten, portfolio), `/program` (+ detail `/program/[slug]`, internship/program yang dijalankan agency, berdiri sendiri di luar Build/Grow), `/blog`, `/contact`. Tidak ada harga di halaman manapun; CTA selalu ke Contact. Form Contact punya opsi Build / Grow / Keduanya. Stack: Next.js 16 (App Router), React 19, Tailwind 4, Resend untuk email form.
 
 ## Capabilities and Constraints
 - Build: Web Development, UI/UX Design, SEO teknis. Grow: Marketing, Social Media, SEO konten. SEO ada di kedua sisi dengan framing berbeda (hindari duplikat copy).
@@ -24,6 +24,7 @@ Struktur Hub + 2 Vertical dalam satu domain: `/` (Hub), `/about` (+ 2 profil `/a
 - Bahasa konten: Indonesia.
 - Nama brand resmi belum final ("Agency 2gether" nama kerja). Profil Grow masih placeholder.
 - Redesain mencakup seluruh situs; struktur halaman, konten, dan fungsi tetap.
+- Program (mis. Open Internship) dikelola statis di `lib/data/programs.ts`, status buka/tutup diubah manual. Pendaftaran lewat form khusus per halaman program (nama, email, link portfolio, pesan, upload CV) yang mengirim email via Resend dengan lampiran — tanpa database atau storage file permanen di v1.
 
 ## Brand Commitments
 Nama kerja Agency 2gether. Konsep dua sisi Build/Grow harus tetap terbaca. Pemilik menyatakan warna, tipografi, dan elemen visual lama (Seam, Build biru, Grow amber, Montserrat) boleh diganti total. Arah visual redesain (dipilih pemilik 2026-09-26): standar kategori agency, dieksekusi dengan craft penuh tanpa gimmick; acuan kualitas Pentagram, Locomotive, Basement (rapi, editorial, tipografi kuat). Motion: tidak berlebihan (tanpa ambient/looping, tanpa semua-elemen-fade-bareng), hormati prefers-reduced-motion.

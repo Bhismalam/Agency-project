@@ -4,6 +4,7 @@ const NEED_LABELS: Record<string, string> = {
   build: "Build — Web Dev / UI-UX / SEO Technical",
   grow: "Grow — Marketing / Social Media / SEO Content",
   both: "Both Build and Grow",
+  "program": "Program / Internship",
   "not-sure": "Not sure yet",
 };
 

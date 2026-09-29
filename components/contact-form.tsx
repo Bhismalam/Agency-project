@@ -149,6 +149,7 @@ export function ContactForm() {
           <option value="build">Build — Web Dev / UI-UX / SEO Technical</option>
           <option value="grow">Grow — Marketing / Social Media / SEO Content</option>
           <option value="both">Both Build and Grow</option>
+          <option value="program">Program / Internship</option>
           <option value="not-sure">Not sure yet</option>
         </select>
       </div>
