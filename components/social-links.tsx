@@ -9,12 +9,17 @@ const socials = [
   { label: "GitHub", href: contact.github, Icon: FaGithub },
 ];
 
-const base =
-  "flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-ink text-ink transition-colors duration-200";
+const sizes = {
+  md: { circle: "h-11 w-11 sm:h-12 sm:w-12", icon: 20, gap: "gap-2.5 sm:gap-3" },
+  sm: { circle: "h-9 w-9", icon: 16, gap: "gap-2" },
+};
 
-export function SocialLinks() {
+export function SocialLinks({ size = "md" }: { size?: "md" | "sm" }) {
+  const { circle, icon, gap } = sizes[size];
+  const base = `flex ${circle} items-center justify-center rounded-full border border-ink text-ink transition-colors duration-200`;
+
   return (
-    <ul className="flex flex-wrap gap-2.5 sm:gap-3">
+    <ul className={`flex flex-wrap ${gap}`}>
       {socials.map(({ label, href, Icon }) => (
         <li key={label}>
           {href ? (
@@ -26,7 +31,7 @@ export function SocialLinks() {
               title={label}
               className={`${base} hover:bg-ink hover:text-paper`}
             >
-              <Icon aria-hidden="true" size={20} />
+              <Icon aria-hidden="true" size={icon} />
             </a>
           ) : (
             <span
@@ -35,7 +40,7 @@ export function SocialLinks() {
               title={`${label} — coming soon`}
               className={`${base} border-line text-muted/50`}
             >
-              <Icon aria-hidden="true" size={20} />
+              <Icon aria-hidden="true" size={icon} />
             </span>
           )}
         </li>
