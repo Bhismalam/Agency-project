@@ -11,7 +11,7 @@ export type TeamMember = {
   experience: { title: string; context: string; period: string }[];
 };
 
-/** Candid photo of both of you for the About page, e.g. "/team/duo.jpg". */
+/** Candid photo of the whole team for the About page, e.g. "/team/duo.jpg". */
 export const teamPhoto: string | undefined = undefined;
 
 export const team: TeamMember[] = [
@@ -19,7 +19,7 @@ export const team: TeamMember[] = [
     slug: "build-lead",
     name: "Bagus Bhismantara",
     vertical: "build",
-    role: "Web Developer, UI/UX Designer",
+    role: "Front-End Develeper,Back_End Developer,Project Manager",
     tagline: "Saya mulai dari masalahnya, lalu membangun website yang menyelesaikannya.",
     bio: "Web developer dan UI/UX designer di Bali yang membangun website dan sistem berbasis riset, dari bisnis penginapan sampai produk SaaS.",
     skills: ["UI/UX Design", "Front-end Development", "Web Building & CMS", "Riset & Strategi", "Full-flow Delivery", "AI-assisted development"],
@@ -42,6 +42,30 @@ export const team: TeamMember[] = [
       { title: "[Role / Campaign]", context: "[Company or context]", period: "[Year–Year]" },
       { title: "[Role / Campaign]", context: "[Company or context]", period: "[Year–Year]" },
       { title: "[Certification / Education]", context: "[Institution]", period: "[Year]" },
+    ],
+  },
+  {
+    slug: "build-2",
+    name: "Gus Oka",
+    vertical: "build",
+    role: "UI/UX Desaigner,QA Tester",
+    tagline: "[1-2 sentence tagline]",
+    bio: "[Paragraph — experience, background, philosophy]",
+    skills: ["[Skill/tool]", "[Skill/tool]", "[Skill/tool]"],
+    experience: [
+      { title: "[Role / Project]", context: "[Company or context]", period: "[Year–Year]" },
+    ],
+  },
+  {
+    slug: "grow-2",
+    name: "Hani",
+    vertical: "grow",
+    role: "[Role]",
+    tagline: "[1-2 sentence tagline]",
+    bio: "[Paragraph — experience, background, philosophy]",
+    skills: ["[Skill/tool]", "[Skill/tool]", "[Skill/tool]"],
+    experience: [
+      { title: "[Role / Campaign]", context: "[Company or context]", period: "[Year–Year]" },
     ],
   },
 ];

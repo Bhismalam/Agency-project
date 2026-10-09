@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   description: "Two people, one agency — the story behind 2gether.",
 };
 
+const toneShades = {
+  build: ["bg-build text-white", "bg-build-deep text-white"],
+  grow: ["bg-grow text-ink", "bg-grow-soft text-ink"],
+} as const;
+
 export default function AboutPage() {
   return (
     <>
@@ -29,7 +34,7 @@ export default function AboutPage() {
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-line">
               <Image
                 src={teamPhoto}
-                alt={team.map((member) => member.name).join(" dan ")}
+                alt={team.map((member) => member.name).join(", ")}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"
@@ -37,7 +42,7 @@ export default function AboutPage() {
             </div>
           ) : (
             <ImagePlaceholder
-              label="[Image — the two of you, candid]"
+              label="[Image — the whole team, candid]"
               className="aspect-[4/3] w-full bg-line"
             />
           )}
@@ -56,53 +61,53 @@ export default function AboutPage() {
       </section>
 
       <section className="grid grid-cols-1 md:grid-cols-2">
-        {team.map((member) => {
+        {team.map((member, index) => {
           const build = member.vertical === "build";
+          // Each person gets their own shade within their side's color family.
+          const shades = toneShades[member.vertical];
+          const shade = shades[team.slice(0, index).filter((m) => m.vertical === member.vertical).length % shades.length];
+          const leftColumn = index % 2 === 0;
           return (
             <Link
               key={member.slug}
               href={`/about/${member.slug}`}
-              className={`group flex flex-col ${build ? "bg-build text-white" : "bg-grow text-ink"}`}
+              className={`group flex flex-col gap-10 py-6 sm:py-10 ${shade} ${
+                leftColumn ? "pr-6 pl-site sm:pr-10" : "pl-6 pr-site sm:pl-10"
+              }`}
             >
-              <div className="relative aspect-[4/5] w-full overflow-hidden bg-alt md:aspect-[4/3]">
+              <div className="flex items-start justify-between gap-6">
+                <div className="text-[15px] font-semibold opacity-80">{build ? "Build" : "Grow"}</div>
+                <span aria-hidden="true" className="text-3xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+              </div>
+              <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-alt">
                 {member.photo ? (
                   <Image
                     src={member.photo}
                     alt={member.name}
                     fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
+                    sizes="320px"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                 ) : (
                   <ImagePlaceholder label={`[Foto — ${member.name}]`} className="h-full w-full" />
                 )}
               </div>
-              <div
-                className={`flex min-h-[360px] flex-1 flex-col justify-between gap-10 ${
-                  build ? "py-6 pr-6 pl-site sm:py-10 sm:pr-10" : "py-6 pl-6 pr-site sm:py-10 sm:pl-10"
-                }`}
-              >
-                <div className="flex items-start justify-between gap-6">
-                  <div className="text-[15px] font-semibold opacity-80">{build ? "Build" : "Grow"}</div>
-                  <span aria-hidden="true" className="text-3xl transition-transform duration-300 group-hover:translate-x-2">→</span>
+              <div>
+                <div className="mb-3 font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] font-semibold tracking-[-0.035em]">
+                  {member.name}
                 </div>
-                <div>
-                  <div className="mb-3 font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] font-semibold tracking-[-0.035em]">
-                    {member.name}
-                  </div>
-                  <div className="mb-5 text-lg font-medium opacity-90">{member.role}</div>
-                  <p className="mb-6 max-w-[40ch] text-[15px] leading-relaxed opacity-80">{member.tagline}</p>
-                  <ul className="flex flex-wrap gap-2">
-                    {member.skills.slice(0, 3).map((skill, index) => (
-                      <li
-                        key={`${skill}-${index}`}
-                        className="rounded-full border border-current/30 px-3 py-1 text-[12px] font-semibold"
-                      >
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <div className="mb-5 text-lg font-medium opacity-90">{member.role}</div>
+                <p className="mb-6 max-w-[40ch] text-[15px] leading-relaxed opacity-80">{member.tagline}</p>
+                <ul className="flex flex-wrap gap-2">
+                  {member.skills.slice(0, 3).map((skill, index) => (
+                    <li
+                      key={`${skill}-${index}`}
+                      className="rounded-full border border-current/30 px-3 py-1 text-[12px] font-semibold"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Link>
           );
