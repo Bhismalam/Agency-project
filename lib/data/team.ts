@@ -3,11 +3,16 @@ export type TeamMember = {
   name: string;
   vertical: "build" | "grow";
   role: string;
+  /** Path under /public, e.g. "/team/bagus.jpg". Portrait 4:5 works best; leave empty to show a placeholder. */
+  photo?: string;
   tagline: string;
   bio: string;
   skills: string[];
   experience: { title: string; context: string; period: string }[];
 };
+
+/** Candid photo of both of you for the About page, e.g. "/team/duo.jpg". */
+export const teamPhoto: string | undefined = undefined;
 
 export const team: TeamMember[] = [
   {
@@ -17,7 +22,7 @@ export const team: TeamMember[] = [
     role: "Web Developer, UI/UX Designer",
     tagline: "Saya mulai dari masalahnya, lalu membangun website yang menyelesaikannya.",
     bio: "Web developer dan UI/UX designer di Bali yang membangun website dan sistem berbasis riset, dari bisnis penginapan sampai produk SaaS.",
-    skills: ["UI/UX Des", "Front-end Development", "Web Building & CMS", "Riset & Strategi", "Full-flow Delivery", "AI-assisted development"],
+    skills: ["UI/UX Design", "Front-end Development", "Web Building & CMS", "Riset & Strategi", "Full-flow Delivery", "AI-assisted development"],
     experience: [
       { title: "Bali Reclaimed Timber Website", context: "Bali Reclaimed Timber & Furniture adalah perusahaan di Bali (berdiri 2023) yang menyelamatkan kayu ulin dari kapal nelayan kayu bekas di lima pulau Indonesia, lalu mengolahnya menjadi material arsitektur, furnitur, dan pesanan khusus untuk villa, resor, dan proyek hospitality. Saya dipercaya sebagai freelancer untuk membangun kehadiran webnya dari nol, mulai dari riset kompetitor, desain UI, sampai situs yang tayang.", period: "Agustus-September 2026" },
       { title: "SWIMCLUB MANAGEMENT SYSTEM", context: "Proyek mandiri untuk klub olahraga yang masih mengelola latihan secara manual di atas kertas. Saya mengerjakannya dari sudut pandang dua pengguna utama, yaitu pelatih dan atlet, dan memakainya untuk menguji stack modern (Next.js, React, TypeScript, Tailwind CSS) pada produk yang berisi data dan visualisasi progres.", period: "Juli 2026 - agustus 2026" },

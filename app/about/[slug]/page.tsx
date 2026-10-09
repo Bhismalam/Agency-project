@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -45,14 +46,27 @@ export default async function ProfilePage(props: {
       </div>
 
       <section className="mx-auto flex max-w-site flex-col items-center gap-10 px-6 py-10 sm:px-8 lg:px-10 2xl:px-16 md:flex-row md:items-center">
-        <div
-          className="h-[220px] w-[220px] flex-shrink-0 rounded-full sm:h-[280px] sm:w-[280px]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(135deg, var(--color-alt) 0 2px, var(--color-card) 2px 14px)",
-          }}
-          aria-hidden="true"
-        />
+        {member.photo ? (
+          <div className="relative h-[220px] w-[220px] flex-shrink-0 overflow-hidden rounded-full bg-alt sm:h-[280px] sm:w-[280px]">
+            <Image
+              src={member.photo}
+              alt={member.name}
+              fill
+              preload
+              sizes="280px"
+              className="object-cover object-top"
+            />
+          </div>
+        ) : (
+          <div
+            className="h-[220px] w-[220px] flex-shrink-0 rounded-full sm:h-[280px] sm:w-[280px]"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(135deg, var(--color-alt) 0 2px, var(--color-card) 2px 14px)",
+            }}
+            aria-hidden="true"
+          />
+        )}
         <div className="flex-1 text-center md:text-left">
           <h1 className="mb-2 font-display text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[1.02] font-semibold tracking-[-0.035em]">
             {member.name}
