@@ -11,7 +11,7 @@ export type Project = {
 export const buildProjects: Project[] = [
   {
     slug: "project-one",
-    name: "[Project name]",
+    name: "Swim Club Management System",
     vertical: "build",
     tag: "Web / UI-UX",
     summary: "[1-line summary of the build]",

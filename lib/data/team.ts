@@ -20,6 +20,7 @@ export const team: TeamMember[] = [
     name: "Bagus Bhismantara",
     vertical: "build",
     role: "Front-End Develeper,Back_End Developer,Project Manager",
+    photo: "/team/bhismantara.jpeg",
     tagline: "Saya mulai dari masalahnya, lalu membangun website yang menyelesaikannya.",
     bio: "Web developer dan UI/UX designer di Bali yang membangun website dan sistem berbasis riset, dari bisnis penginapan sampai produk SaaS.",
     skills: ["UI/UX Design", "Front-end Development", "Web Building & CMS", "Riset & Strategi", "Full-flow Delivery", "AI-assisted development"],
